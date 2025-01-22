@@ -4,6 +4,8 @@
 
 - [ ] Main page
 - [ ] Info page for users. Should prompt first time seeing site /info
+- [ ] - Sign for new entries
+- [ ] but a different way to add entire meals. perhaps a modal
 
 ## Enhancements
 

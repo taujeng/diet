@@ -1,0 +1,36 @@
+.meal-container {
+  border: 2px purple solid;
+  margin: 20px 0;
+  padding: 10px;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .meal-content {
+    .meal-label {
+      width: 750px;
+      display: flex;
+      font-size: 1.5em;
+      font-weight: bold;
+      justify-content: center;
+      gap: 1rem;
+      .label-name {
+        // flex: 2;
+        width: 200px;
+      }
+      .label-quantity {
+        // flex: 1;
+        width: 35px;
+      }
+      .label-size {
+        flex: 1;
+      }
+      .label-stats {
+        flex: 1.5;
+      }
+      .label-delete {
+        width: 40px;
+      }
+    }
+  }
+}

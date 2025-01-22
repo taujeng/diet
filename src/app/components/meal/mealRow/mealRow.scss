@@ -1,0 +1,67 @@
+.mealRow-container {
+  border: 2px orange solid;
+  width: 750px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 10px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  .meal-name {
+    // flex: 2;
+    
+    width: 200px;
+  }
+  .meal-quantity { 
+    // flex: 1;
+    width: 35px;
+  }
+  .formQty {
+    max-width: 35px;
+  }
+  .meal-size {
+    flex: 1;
+  }
+  .meal-stats {
+    display: flex;
+    align-items: center;
+    flex: 1.5;
+    .meal-calories {
+      width: 50px;
+      margin-right: 10px;
+    }
+  }
+  .formStats {
+    width: 50px;
+    margin-right: 10px;
+  }
+  .meal-options {
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      border: none;
+      background-color: none;
+      font-size: inherit;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .meal-submit {
+      cursor: pointer;
+      background-color: green;
+    }
+    .meal-submit.noShow{
+      visibility: hidden;
+    }
+  }
+}
+
+// .mealRow-container input,
+// .mealRow-container select,
+// .mealRow-container div {
+//   padding: 0; /* Ensure padding is consistent */
+//   margin: 0; /* Remove any margin */
+//   height: 100%; /* Ensure consistent height */
+//   line-height: 1.5rem; /* Match vertical alignment */
+// }

@@ -14,3 +14,17 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+input,
+select {
+  font-family: inherit; /* Use the same font as the rest of the app */
+  font-size: inherit;   /* Match the parent font size */
+  color: inherit;       /* Match the parent text color */
+  /* border: none;         Remove default borders */
+  border: 1px black solid;
+  outline: none;        /* Remove focus outline */
+  padding: 0rem;      /* Add padding for better UX */
+  margin: 0;            /* Reset margin */
+  line-height: 1.5em;
+  vertical-align: middle;
+}

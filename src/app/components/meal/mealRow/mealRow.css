@@ -1,0 +1,55 @@
+.mealRow-container {
+  border: 2px orange solid;
+  width: 750px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 10px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.mealRow-container .meal-name {
+  width: 200px;
+}
+.mealRow-container .meal-quantity {
+  width: 35px;
+}
+.mealRow-container .formQty {
+  max-width: 35px;
+}
+.mealRow-container .meal-size {
+  flex: 1;
+}
+.mealRow-container .meal-stats {
+  display: flex;
+  align-items: center;
+  flex: 1.5;
+}
+.mealRow-container .meal-stats .meal-calories {
+  width: 50px;
+  margin-right: 10px;
+}
+.mealRow-container .formStats {
+  width: 50px;
+  margin-right: 10px;
+}
+.mealRow-container .meal-options {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mealRow-container .meal-options button {
+  border: none;
+  background-color: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+.mealRow-container .meal-options .meal-submit {
+  cursor: pointer;
+  background-color: green;
+}
+.mealRow-container .meal-options .meal-submit.noShow {
+  visibility: hidden;
+}/*# sourceMappingURL=mealRow.css.map */
