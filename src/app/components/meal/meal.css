@@ -7,6 +7,14 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.meal-container .meal-title {
+  width: 200px;
+}
+.meal-container .meal-pic {
+  width: 200px;
+  height: 200px;
+  border: 1px red solid;
+}
 .meal-container .meal-content .meal-label {
   width: 750px;
   display: flex;
