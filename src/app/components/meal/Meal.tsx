@@ -5,25 +5,9 @@ import "./meal.css"
 import MealRow from './mealRow/MealRow'
 import { v4 as uuidv4 } from 'uuid';
 
-const Meal = () => {
-  const [mealData, setMealData] = useState([
-    {
-      id: uuidv4(),
-      name: "Steak",
-      quantity: 1,
-      size: "normal",
-      calories: 1200,
-      edit: false
-    },
-    {
-      id: uuidv4(),
-      name: "mashed potatoes",
-      quantity: 1,
-      size: "normal",
-      calories: 600,
-      edit: false
-    },
-  ])
+const Meal = ( {title, data}) => {
+  const [mealData, setMealData] = useState(data);
+
 
   const handleNewRow = () => {
     const newDefault = {
@@ -57,7 +41,7 @@ const Meal = () => {
   return (
     <div className="meal-container">
       <div className="meal-title">
-        <h1>Breakfast</h1>
+        <h1>{title}</h1>
       </div>
       <div className="meal-pic">
         picture here
@@ -72,7 +56,7 @@ const Meal = () => {
         </div>
         <button onClick={()=> handleNewRow()}>ADD ROW</button>
         {mealData && mealData.map((meal, i) => (
-          <MealRow key={i} data={meal} confirmRow={confirmRow} removeRow={removeRow}/>
+          <MealRow key={meal.id} data={meal} confirmRow={confirmRow} removeRow={removeRow}/>
         ))}
       </div>
     </div>
