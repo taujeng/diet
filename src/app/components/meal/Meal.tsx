@@ -28,6 +28,7 @@ const Meal = ( {title, data}) => {
           name: formData.formName, 
           quantity: formData.formQuantity,
           size: formData.formSize,  
+          calories: formData.formCalories,
           edit: false
         }
         return newItem
