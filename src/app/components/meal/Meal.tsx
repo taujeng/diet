@@ -12,10 +12,10 @@ const Meal = ( {title, data}) => {
   const handleNewRow = () => {
     const newDefault = {
       id: uuidv4(),
-      name: "fresh meat",
+      name: "",
       quantity: 1,
       size: "normal",
-      calories: 600,
+      calories: null,
       edit: true
     }
     setMealData([...mealData, newDefault])
