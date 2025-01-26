@@ -21,10 +21,16 @@ const Meal = ( {title, data}) => {
     setMealData([...mealData, newDefault])
   }
 
-  const confirmRow = (id) => {
+  const confirmRow = (id, formData) => {
     const newList = mealData.map((item) => {
       if (item.id === id) {
-        return {...item, edit: false}
+        const newItem = {...item, 
+          name: formData.formName, 
+          quantity: formData.formQuantity,
+          size: formData.formSize,  
+          edit: false
+        }
+        return newItem
       }
       return item
     })

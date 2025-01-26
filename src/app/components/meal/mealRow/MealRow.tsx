@@ -10,7 +10,7 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
   })
 
   const handleSubmit = () => {
-    confirmRow(id);
+    confirmRow(id, formData);
   }
 
 
