@@ -22,6 +22,22 @@ const Meal = ( {title, data, updateMeal}) => {
   const confirmRow = async (id, formData) => {
     let newCalories = formData.formCalories || 0; // Use the provided calories or default to 0
 
+    const newList = data.map((item) => {
+      if (item.id === id) {
+        const newItem = {...item, 
+          name: formData.formName, 
+          quantity: formData.formQuantity,
+          size: formData.formSize,  
+          calories: newCalories > 0 ? formData.calories : "...",
+          edit: false
+        }
+        return newItem
+      }
+      return item
+    })
+    updateMeal(title, newList)
+
+
     try {
       // Only call the API if calories are 0 or not provided
       if (newCalories === 0) {
@@ -38,25 +54,19 @@ const Meal = ( {title, data, updateMeal}) => {
           return;
         }
         console.log(data)
-        newCalories = parseInt(data.calories, 10) || 0; // Parse calories as a number or default to 0
+        newCalories = parseInt(data.user.content, 10) || 0; // Parse calories as a number or default to 0
       }
     } catch (error) {
       console.error("Error fetching calorie data:", error);
     }
-    const newList = data.map((item) => {
+    const updatedList = newList.map((item) => {
       if (item.id === id) {
-        const newItem = {...item, 
-          name: formData.formName, 
-          quantity: formData.formQuantity,
-          size: formData.formSize,  
-          calories: newCalories,
-          edit: false
-        }
-        return newItem
+        return { ...item, calories: newCalories };
       }
-      return item
-    })
-    updateMeal(title, newList)
+      return item;
+    });
+  
+    updateMeal(title, updatedList);
   }
 
   const removeRow = (id) => {

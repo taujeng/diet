@@ -48,6 +48,7 @@
 }
 .mealRow-container .meal-options .meal-submit {
   cursor: pointer;
+  margin-right: 10px;
   background-color: green;
 }
 .mealRow-container .meal-options .meal-submit.noShow {
