@@ -39,6 +39,14 @@ export default function Home() {
     dinner: []
   })
 
+    // Function to update meals from child components
+    const updateMeal = (mealType, updatedMeals) => {
+      setMeals((prev) => ({
+        ...prev,
+        [mealType]: updatedMeals
+      }));
+    };
+
   const fetchData = async (slug) => {
     // e.preventDefault()
     
@@ -66,8 +74,13 @@ export default function Home() {
     <div className="">
       <Header />
       <button onClick={() => fetchData("blueberry muffin")}>Test Me</button>
-      {Object.entries(meals).map(([key,value], index) => {
-        return <Meal key={index} title={key} data={value}/>
+      {Object.entries(meals).map(([key,value]) => {
+        return <Meal 
+                  key={key}   
+                  title={key} 
+                  data={value}
+                  updateMeal={updateMeal}
+                />
       })}
     </div>
   );

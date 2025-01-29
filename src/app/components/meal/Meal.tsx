@@ -1,13 +1,11 @@
 'use client'
 
-import React, {useState} from 'react'
+import React from 'react'
 import "./meal.css"
 import MealRow from './mealRow/MealRow'
 import { v4 as uuidv4 } from 'uuid';
 
-const Meal = ( {title, data}) => {
-  const [mealData, setMealData] = useState(data);
-
+const Meal = ( {title, data, updateMeal}) => {
 
   const handleNewRow = () => {
     const newDefault = {
@@ -18,7 +16,7 @@ const Meal = ( {title, data}) => {
       calories: null,
       edit: true
     }
-    setMealData([...mealData, newDefault])
+    updateMeal(title, [...data, newDefault])
   }
 
   const confirmRow = async (id, formData) => {
@@ -45,7 +43,7 @@ const Meal = ( {title, data}) => {
     } catch (error) {
       console.error("Error fetching calorie data:", error);
     }
-    const newList = mealData.map((item) => {
+    const newList = data.map((item) => {
       if (item.id === id) {
         const newItem = {...item, 
           name: formData.formName, 
@@ -58,15 +56,14 @@ const Meal = ( {title, data}) => {
       }
       return item
     })
-    setMealData(newList)
+    updateMeal(title, newList)
   }
 
   const removeRow = (id) => {
-    const newList = mealData.filter((item) => {
+    const newList = data.filter((item) => {
       return item.id !== id
     })
-    setMealData(newList)
-    console.log("closed")
+    updateMeal(title, newList)
   }
 
   return (
@@ -86,7 +83,7 @@ const Meal = ( {title, data}) => {
           <div className="label-delete"></div>
         </div>
         <button onClick={()=> handleNewRow()}>ADD ROW</button>
-        {mealData && mealData.map((meal, i) => (
+        {data && data.map((meal, i) => (
           <MealRow key={meal.id} data={meal} confirmRow={confirmRow} removeRow={removeRow}/>
         ))}
       </div>

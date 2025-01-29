@@ -9,14 +9,9 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
     formName: name, formQuantity: quantity, formSize: size, formCalories: calories
   })
 
-  const handleSubmit = () => {
-    confirmRow(id, formData);
-  }
-
-
   if (edit) {
     return (
-      <form onSubmit={handleSubmit} className="mealRow-container">
+      <div className="mealRow-container">
         <input  className="meal-name" 
           defaultValue={name}
           onChange={(e) => setFormData({...formData, formName:e.target.value})}
@@ -46,11 +41,11 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
         </div>
         <div className="meal-options">
           <div className="meal-submit"
-            onClick={()=>handleSubmit()}
+            onClick={()=> confirmRow(id, formData)}
           >Y</div>
-          <button onClick={()=>removeRow()}>X</button>
+          <button onClick={()=> removeRow(id)}>X</button>
         </div>
-      </form>
+      </div>
     )
   }
 
@@ -66,7 +61,7 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
       </div>
       <div className="meal-options">
         <div className="meal-submit noShow">Y</div>
-        <button onClick={()=> removeRow()}>X</button>
+        <button onClick={()=> removeRow(id)}>X</button>
       </div>
     </div>
   )
