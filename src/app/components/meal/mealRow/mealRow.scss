@@ -13,27 +13,23 @@
     width: 200px;
   }
   .meal-quantity { 
-    // flex: 1;
     width: 35px;
   }
-  .formQty {
-    max-width: 35px;
-  }
+  // .formQty {
+  //   max-width: 35px;
+  // }
   .meal-size {
     flex: 1;
+    max-width: 100px;
   }
-  .meal-stats {
+  .meal-calories,
+  .meal-protein,
+  .formStats
+  {
     display: flex;
     align-items: center;
-    flex: 1.5;
-    .meal-calories {
-      width: 50px;
-      margin-right: 10px;
-    }
-  }
-  .formStats {
-    width: 50px;
-    margin-right: 10px;
+    flex: 1;
+    width: 55px;
   }
   .meal-options {
     width: 40px;

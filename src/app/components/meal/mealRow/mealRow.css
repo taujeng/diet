@@ -14,24 +14,17 @@
 .mealRow-container .meal-quantity {
   width: 35px;
 }
-.mealRow-container .formQty {
-  max-width: 35px;
-}
 .mealRow-container .meal-size {
   flex: 1;
+  max-width: 100px;
 }
-.mealRow-container .meal-stats {
+.mealRow-container .meal-calories,
+.mealRow-container .meal-protein,
+.mealRow-container .formStats {
   display: flex;
   align-items: center;
-  flex: 1.5;
-}
-.mealRow-container .meal-stats .meal-calories {
-  width: 50px;
-  margin-right: 10px;
-}
-.mealRow-container .formStats {
-  width: 50px;
-  margin-right: 10px;
+  flex: 1;
+  width: 55px;
 }
 .mealRow-container .meal-options {
   width: 40px;

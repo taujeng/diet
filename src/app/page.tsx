@@ -15,6 +15,7 @@ export default function Home() {
         quantity: 1,
         size: "normal",
         calories: 1200,
+        protein: 400,
         edit: false,
       },
       {
@@ -23,6 +24,7 @@ export default function Home() {
         quantity: 12,
         size: "large",
         calories: 600,
+        protein: 200,
         edit: false,
       },
     ],
@@ -33,6 +35,7 @@ export default function Home() {
         quantity: 1,
         size: "large",
         calories: 700,
+        protein: 400,
         edit: false,
       },
     ],

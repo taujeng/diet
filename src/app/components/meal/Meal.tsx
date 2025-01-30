@@ -14,6 +14,7 @@ const Meal = ( {title, data, updateMeal}) => {
       quantity: 1,
       size: "normal",
       calories: null,
+      protein: null,
       edit: true
     }
     updateMeal(title, [...data, newDefault])
@@ -21,6 +22,11 @@ const Meal = ( {title, data, updateMeal}) => {
 
   const confirmRow = async (id, formData) => {
     let newCalories = formData.formCalories || 0; // Use the provided calories or default to 0
+    let newProtein = formData.formProtein || 0;
+
+    // Determine what needs updating
+    const fetchCalories = newCalories === 0;
+    const fetchProtein = newProtein === 0;
 
     const newList = data.map((item) => {
       if (item.id === id) {
@@ -28,7 +34,8 @@ const Meal = ( {title, data, updateMeal}) => {
           name: formData.formName, 
           quantity: formData.formQuantity,
           size: formData.formSize,  
-          calories: newCalories > 0 ? formData.calories : "...",
+          calories: newCalories > 0 ? newCalories : "...",
+          protein: newProtein > 0 ? newProtein : "...",
           edit: false
         }
         return newItem
@@ -37,33 +44,34 @@ const Meal = ( {title, data, updateMeal}) => {
     })
     updateMeal(title, newList)
 
+    if (!fetchCalories && !fetchProtein) return;
 
     try {
       // Only call the API if calories are 0 or not provided
-      if (newCalories === 0) {
-        const response = await fetch("/api/getCalories", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ food: formData.formName }), // Pass the food name from the form
-        });
-  
-        const data = await response.json();
-  
-        if (!response.ok) {
-          console.error("API Error:", data.error || "Failed to fetch calories.");
-          return;
-        }
-        console.log(data)
-        newCalories = parseInt(data.user.content, 10) || 0; // Parse calories as a number or default to 0
+      const response = await fetch("/api/getNutrition", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ food: formData.formName }), // Pass the food name from the form
+      });
+
+      const res = await response.json();
+      const arrayData = JSON.parse(res.user.content);
+
+      if (!response.ok) {
+        console.error("API Error:", data.error || "Failed to fetch stats.");
+        return;
+      }
+      if (fetchCalories) {
+        newCalories = parseInt(arrayData[0], 10) || 0; // Parse calories as a number or default to 0
+      }
+      if (fetchProtein) {
+        newProtein = parseInt(arrayData[1], 10) || 0; // Parse protein as a number or default to 0
       }
     } catch (error) {
       console.error("Error fetching calorie data:", error);
     }
     const updatedList = newList.map((item) => {
-      if (item.id === id) {
-        return { ...item, calories: newCalories };
-      }
-      return item;
+      return item.id === id ? { ...item, calories: newCalories, protein: newProtein } : item
     });
   
     updateMeal(title, updatedList);
@@ -81,15 +89,16 @@ const Meal = ( {title, data, updateMeal}) => {
       <div className="meal-title">
         <h1>{title}</h1>
       </div>
-      <div className="meal-pic">
+      {/* <div className="meal-pic">
         picture here
-      </div>
+      </div> */}
       <div className="meal-content">
         <div className="meal-label">
           <div className="label-name"></div>
           <div className="label-quantity">qty</div>
           <div className="label-size">size</div>
-          <div className="label-stats">stats</div>
+          <div className="label-calories">calories</div>
+          <div className="label-protein">protein</div>
           <div className="label-delete"></div>
         </div>
         <button onClick={()=> handleNewRow()}>ADD ROW</button>

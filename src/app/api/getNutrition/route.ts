@@ -84,10 +84,10 @@ export async function POST(request: Request) {
     const completion = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
-            { role: "system", content: "You are a succint nutritionist. Just answer with the estimated number of calories. No range, one number. Omit 'calories'" },
+            { role: "system", content: "You are a succinct nutritionist. Just answer with the estimated number of calories. Answer with an array. First number is calories, 2nd item is protein." },
             {
                 role: "user",
-                content: `How many calories are in a ${food}?`,
+                content: `How many calories and protein are in a ${food}?`,
             },
         ],
         temperature: 0.1,

@@ -32,7 +32,10 @@
 .meal-container .meal-content .meal-label .label-size {
   flex: 1;
 }
-.meal-container .meal-content .meal-label .label-stats {
+.meal-container .meal-content .meal-label .label-calories {
+  flex: 1.5;
+}
+.meal-container .meal-content .meal-label .label-protein {
   flex: 1.5;
 }
 .meal-container .meal-content .meal-label .label-delete {

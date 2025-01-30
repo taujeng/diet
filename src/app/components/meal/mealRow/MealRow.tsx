@@ -4,9 +4,9 @@ import React, {useState} from 'react'
 import "./mealRow.css"
 
 const MealRow = ( {data, confirmRow, removeRow} ) => {
-  const {id, name, quantity, size, calories, edit} = data
+  const {id, name, quantity, size, calories, protein, edit} = data
   const [formData, setFormData] = useState({
-    formName: name, formQuantity: quantity, formSize: size, formCalories: calories
+    formName: name, formQuantity: quantity, formSize: size, formCalories: calories, formProtein: protein
   })
 
   if (edit) {
@@ -31,14 +31,18 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
           <option value="normal">Normal</option>
           <option value="large">Large</option>
         </select>
-        <div className="meal-stats">
-          <input 
-            defaultValue={calories}
-            className="formStats"
-            type="number"
-            onChange={(e)=> setFormData({...formData, formCalories: e.target.value})}
-          /> calories
-        </div>
+        <input 
+          defaultValue={calories}
+          className="formStats"
+          type="number"
+          onChange={(e)=> setFormData({...formData, formCalories: e.target.value})}
+        />
+        <input 
+          defaultValue={protein}
+          className="formStats"
+          type="number"
+          onChange={(e)=> setFormData({...formData, formProtein: e.target.value})}
+        />
         <div className="meal-options">
           <div className="meal-submit"
             onClick={()=> confirmRow(id, formData)}
@@ -56,9 +60,8 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
       <div className="meal-name">{name}</div>
       <div className="meal-quantity">{quantity}</div>
       <div className="meal-size">{size}</div>
-      <div className="meal-stats">
-        <div className="meal-calories">{calories}</div> calories
-      </div>
+      <div className="meal-calories">{calories}</div>
+      <div className="meal-protein">{protein}</div>
       <div className="meal-options">
         <div className="meal-submit noShow">Y</div>
         <button onClick={()=> removeRow(id)}>X</button>
