@@ -40,4 +40,21 @@
 }
 .meal-container .meal-content .meal-label .label-delete {
   width: 40px;
+}
+.meal-container .addEntry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.meal-container .addEntry .plus {
+  margin-top: 15px;
+  width: 30px;
+  height: 30px;
+  color: black;
+  border-radius: 50%;
+}
+.meal-container .addEntry .plus:hover {
+  background-color: grey;
+  color: white;
+  cursor: pointer;
 }/*# sourceMappingURL=meal.css.map */

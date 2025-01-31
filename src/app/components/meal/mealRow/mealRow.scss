@@ -32,28 +32,39 @@
     width: 55px;
   }
   .meal-options {
-    width: 40px;
+    width: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     button {
       border: none;
-      background-color: none;
-      font-size: inherit;
-      font-family: inherit;
-      cursor: pointer;
+      background-color: inherit;
     }
     .meal-submit {
       cursor: pointer;
       margin-right: 10px;
       background-color: green;
     }
-    .meal-submit.noShow{
+    .submit-btn {
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      color: green;
+      transition: color 0.5s ease;
+    }
+    .submit-btn.noShow {
       visibility: hidden;
     }
+    .remove-btn {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      color: crimson;
+    }
+
+
   }
 }
-
 // .mealRow-container input,
 // .mealRow-container select,
 // .mealRow-container div {

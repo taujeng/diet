@@ -27,23 +27,33 @@
   width: 55px;
 }
 .mealRow-container .meal-options {
-  width: 40px;
+  width: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 .mealRow-container .meal-options button {
   border: none;
-  background-color: none;
-  font-size: inherit;
-  font-family: inherit;
-  cursor: pointer;
+  background-color: inherit;
 }
 .mealRow-container .meal-options .meal-submit {
   cursor: pointer;
   margin-right: 10px;
   background-color: green;
 }
-.mealRow-container .meal-options .meal-submit.noShow {
+.mealRow-container .meal-options .submit-btn {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  color: green;
+  transition: color 0.5s ease;
+}
+.mealRow-container .meal-options .submit-btn.noShow {
   visibility: hidden;
+}
+.mealRow-container .meal-options .remove-btn {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: crimson;
 }/*# sourceMappingURL=mealRow.css.map */

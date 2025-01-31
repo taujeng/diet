@@ -4,6 +4,7 @@ import React from 'react'
 import "./meal.css"
 import MealRow from './mealRow/MealRow'
 import { v4 as uuidv4 } from 'uuid';
+import { Plus } from "lucide-react";
 
 const Meal = ( {title, data, updateMeal}) => {
 
@@ -13,8 +14,8 @@ const Meal = ( {title, data, updateMeal}) => {
       name: "",
       quantity: 1,
       size: "normal",
-      calories: null,
-      protein: null,
+      calories: "",
+      protein: "",
       edit: true
     }
     updateMeal(title, [...data, newDefault])
@@ -102,10 +103,13 @@ const Meal = ( {title, data, updateMeal}) => {
           <div className="label-protein">protein</div>
           <div className="label-delete"></div>
         </div>
-        <button onClick={()=> handleNewRow()}>ADD ROW</button>
         {data && data.map((meal, i) => (
           <MealRow key={meal.id} data={meal} confirmRow={confirmRow} removeRow={removeRow}/>
         ))}
+        <div className="addEntry">
+          <Plus className="plus" onClick={()=> handleNewRow()}/>
+
+        </div>
       </div>
     </div>
   )
