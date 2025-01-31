@@ -28,19 +28,26 @@
       }
       .label-quantity {
         // flex: 1;
-        width: 35px;
+        width: 40px;
       }
       .label-size {
         flex: 1;
+        max-width: 100px;
       }
       .label-calories {
-        flex: 1.5;
+        flex: 1;
       }
       .label-protein {
-        flex: 1.5;
+        flex: 1;
       }
-      .label-delete {
-        width: 40px;
+      .label-options {
+        width: 100px;
+      }
+    }
+    .sum-container {
+      .sum-line {
+        border-bottom: 2px rgb(82, 10, 10) solid;
+        margin-bottom: 10px;
       }
     }
   }

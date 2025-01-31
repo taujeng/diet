@@ -1,10 +1,9 @@
 .mealRow-container {
-  border: 2px orange solid;
   width: 750px;
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin: 10px;
+  margin: 10px 0;
   font-size: 1.2em;
   line-height: 1.5em;
 }
@@ -12,7 +11,7 @@
   width: 200px;
 }
 .mealRow-container .meal-quantity {
-  width: 35px;
+  width: 40px;
 }
 .mealRow-container .meal-size {
   flex: 1;

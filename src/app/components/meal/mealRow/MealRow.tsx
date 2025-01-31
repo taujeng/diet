@@ -31,6 +31,7 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
           value={formData.formQuantity}
           type="number"
           min="1"
+          max="99"
           step="1"
           onChange={(e) => {
             const value = parseInt(e.target.value, 10)

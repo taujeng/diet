@@ -8,6 +8,17 @@ import { Plus } from "lucide-react";
 
 const Meal = ( {title, data, updateMeal}) => {
 
+
+  const totalCalories = data.reduce((acc, currentValue) => {
+    const calories = currentValue.calories === "..." ? 0 : currentValue.calories;
+    return acc += calories;
+  }, 0)
+  const totalProtein = data.reduce((acc, currentValue) => {
+    const protein = currentValue.protein === "..." ? 0 : currentValue.protein;
+    return acc += protein;
+  }, 0)
+
+
   const handleNewRow = () => {
     const newDefault = {
       id: uuidv4(),
@@ -28,7 +39,6 @@ const Meal = ( {title, data, updateMeal}) => {
     // Determine what needs updating
     const fetchCalories = newCalories === 0;
     const fetchProtein = newProtein === 0;
-    const qty = formData.formquantity 
 
     const newList = data.map((item) => {
       if (item.id === id) {
@@ -101,11 +111,25 @@ const Meal = ( {title, data, updateMeal}) => {
           <div className="label-size">size</div>
           <div className="label-calories">calories</div>
           <div className="label-protein">protein</div>
-          <div className="label-delete"></div>
+          <div className="label-options"></div>
         </div>
         {data && data.map((meal, i) => (
           <MealRow key={meal.id} data={meal} confirmRow={confirmRow} removeRow={removeRow}/>
         ))}
+        {data.length > 0 && 
+          <div className="sum-container">
+            <div className="sum-line"></div>
+            <div className="meal-label">
+              <div className="label-name"></div>
+              <div className="label-quantity"></div>
+              <div className="label-size"></div>
+              <div className="label-calories">{totalCalories}</div>
+              <div className="label-protein">{totalProtein}</div>
+              <div className="label-options"></div>
+            </div>
+          </div>
+        
+        }
         <div className="addEntry">
           <Plus className="plus" onClick={()=> handleNewRow()}/>
 

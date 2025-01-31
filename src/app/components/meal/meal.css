@@ -27,19 +27,24 @@
   width: 200px;
 }
 .meal-container .meal-content .meal-label .label-quantity {
-  width: 35px;
+  width: 40px;
 }
 .meal-container .meal-content .meal-label .label-size {
   flex: 1;
+  max-width: 100px;
 }
 .meal-container .meal-content .meal-label .label-calories {
-  flex: 1.5;
+  flex: 1;
 }
 .meal-container .meal-content .meal-label .label-protein {
-  flex: 1.5;
+  flex: 1;
 }
-.meal-container .meal-content .meal-label .label-delete {
-  width: 40px;
+.meal-container .meal-content .meal-label .label-options {
+  width: 100px;
+}
+.meal-container .meal-content .sum-container .sum-line {
+  border-bottom: 2px rgb(82, 10, 10) solid;
+  margin-bottom: 10px;
 }
 .meal-container .addEntry {
   display: flex;
