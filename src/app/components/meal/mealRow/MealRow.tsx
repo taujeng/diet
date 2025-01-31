@@ -21,11 +21,15 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
           defaultValue={quantity}
           type="number"
           min="1"
-          onChange={(e) => setFormData({...formData, formQuantity: e.target.value})}
+          step="1"
+          onChange={(e) => {
+            const value = parseInt(e.target.value, 10)
+            setFormData({...formData, formQuantity: value > 0 ? value : 1})}}
         />
         <select className="meal-size"
           value={formData.formSize}
-          onChange={(e) => setFormData({...formData, formSize: e.target.value})}
+          onChange={(e) => 
+            setFormData({...formData, formSize: e.target.value})}
         >
           <option value="small">Small</option>
           <option value="normal">Normal</option>

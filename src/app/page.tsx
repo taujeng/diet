@@ -50,33 +50,9 @@ export default function Home() {
       }));
     };
 
-  const fetchData = async (slug) => {
-    // e.preventDefault()
-    
-    try {
-      const response = await fetch('/api/getCalories', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          food: slug,
-        })
-      })
-      
-      const data = await response.json()
-      setMessage(data.success ? 'User created!' : 'Failed to create user')
-      console.log( data)
-      console.log(data.success ? data.user : 'Failed to create user')
-    } catch (error) {
-      setMessage('Error creating user')
-    }
-  }
-
   return (
     <div className="">
       <Header />
-      <button onClick={() => fetchData("blueberry muffin")}>Test Me</button>
       {Object.entries(meals).map(([key,value]) => {
         return <Meal 
                   key={key}   

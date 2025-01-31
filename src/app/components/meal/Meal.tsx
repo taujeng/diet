@@ -27,6 +27,7 @@ const Meal = ( {title, data, updateMeal}) => {
     // Determine what needs updating
     const fetchCalories = newCalories === 0;
     const fetchProtein = newProtein === 0;
+    const qty = formData.formquantity 
 
     const newList = data.map((item) => {
       if (item.id === id) {
@@ -51,7 +52,7 @@ const Meal = ( {title, data, updateMeal}) => {
       const response = await fetch("/api/getNutrition", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ food: formData.formName }), // Pass the food name from the form
+        body: JSON.stringify({ food: formData.formName, size: formData.formSize }), // Pass the food name from the form
       });
 
       const res = await response.json();
@@ -62,10 +63,10 @@ const Meal = ( {title, data, updateMeal}) => {
         return;
       }
       if (fetchCalories) {
-        newCalories = parseInt(arrayData[0], 10) || 0; // Parse calories as a number or default to 0
+        newCalories = parseInt(arrayData[0], 10) * formData.formQuantity || 0; // Parse calories as a number or default to 0
       }
       if (fetchProtein) {
-        newProtein = parseInt(arrayData[1], 10) || 0; // Parse protein as a number or default to 0
+        newProtein = parseInt(arrayData[1], 10) * formData.formQuantity || 0; // Parse protein as a number or default to 0
       }
     } catch (error) {
       console.error("Error fetching calorie data:", error);
