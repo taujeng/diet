@@ -1,9 +1,9 @@
 'use client'
 
 import React, {useState} from 'react'
-import Header from "./components/header/Header";
 import Meal from "./components/meal/Meal";
 import { v4 } from 'uuid';
+import "./home.css"
 
 export default function Home() {
   const [message, setMessage] = useState('')
@@ -51,8 +51,7 @@ export default function Home() {
     };
 
   return (
-    <div className="">
-      <Header />
+    <div className="home-container">
       {Object.entries(meals).map(([key,value]) => {
         return <Meal 
                   key={key}   
