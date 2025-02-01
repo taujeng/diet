@@ -4,8 +4,11 @@
 
 - [ ] Main page
 - [ ] Info page for users. Should prompt first time seeing site /info
-- [ ] - Sign for new entries
+- [ ] Overall section: for new users, use the average person as the standard
+- [ ] suggest next meal
+- [x] - Sign for new entries
 - [ ] but a different way to add entire meals. perhaps a modal
+- [ ] image generation based off meal
 
 ## Enhancements
 

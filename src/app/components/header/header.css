@@ -1,13 +1,18 @@
 .header-container {
   height: 120px;
   padding: 0 125px;
-  border: 1px red solid;
+  border-bottom: 1px solid rgba(176, 190, 197, 0.5);
   display: flex;
+  color: #667085;
+  font-size: 16px;
+  font-weight: 300;
   justify-content: space-between;
   align-items: center;
 }
-.header-container .header-left {
-  font-size: 2em;
+.header-container .header-left h1 {
+  font-size: 2.5em;
+  font-family: "Exo", serif;
+  color: #66D37E;
 }
 .header-container .header-right ul {
   display: flex;
