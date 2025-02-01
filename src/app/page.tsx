@@ -8,7 +8,7 @@ import "./home.css"
 export default function Home() {
   const [message, setMessage] = useState('')
   const [meals, setMeals] = useState({
-    breakfast: [
+    Breakfast: [
       {
         id: v4(),
         name: "Steak",
@@ -28,7 +28,7 @@ export default function Home() {
         edit: false,
       },
     ],
-    lunch: [
+    Lunch: [
       { 
         id: v4(),
         name: "Chicken Sandwich",
@@ -39,7 +39,7 @@ export default function Home() {
         edit: false,
       },
     ],
-    dinner: []
+    Dinner: []
   })
 
     // Function to update meals from child components

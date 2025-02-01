@@ -1,5 +1,5 @@
 .mealRow-container {
-  width: 750px;
+  width: 850px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -8,14 +8,14 @@
   line-height: 1.5em;
 }
 .mealRow-container .meal-name {
-  width: 200px;
+  width: 300px;
 }
 .mealRow-container .meal-quantity {
   width: 40px;
 }
 .mealRow-container .meal-size {
   flex: 1;
-  max-width: 100px;
+  width: 100px;
 }
 .mealRow-container .meal-calories,
 .mealRow-container .meal-protein,

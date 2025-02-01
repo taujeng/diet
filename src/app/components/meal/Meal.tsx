@@ -107,10 +107,10 @@ const Meal = ( {title, data, updateMeal}) => {
       <div className="meal-content">
         <div className="meal-label">
           <div className="label-name"></div>
-          <div className="label-quantity">qty</div>
-          <div className="label-size">size</div>
-          <div className="label-calories">calories</div>
-          <div className="label-protein">protein</div>
+          <div className="label-quantity">Qty</div>
+          <div className="label-size">Size</div>
+          <div className="label-calories">Calories</div>
+          <div className="label-protein">Protein</div>
           <div className="label-options"></div>
         </div>
         {data && data.map((meal, i) => (

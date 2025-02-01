@@ -1,6 +1,5 @@
 .mealRow-container {
-  // border: 2px orange solid;
-  width: 750px;
+  width: 850px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -10,7 +9,7 @@
   .meal-name {
     // flex: 2;
     
-    width: 200px;
+    width: 300px;
   }
   .meal-quantity { 
     width: 40px;
@@ -20,7 +19,7 @@
   // }
   .meal-size {
     flex: 1;
-    max-width: 100px;
+    width: 100px;
   }
   .meal-calories,
   .meal-protein,

@@ -1,5 +1,5 @@
 .meal-container {
-  margin: 20px 0;
+  margin: 10px 0 20px;
   padding: 10px;
   min-height: 200px;
   display: flex;
@@ -16,22 +16,22 @@
   border: 1px red solid;
 }
 .meal-container .meal-content .meal-label {
-  width: 750px;
+  width: 850px;
   display: flex;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 600;
   justify-content: center;
   gap: 1rem;
 }
 .meal-container .meal-content .meal-label .label-name {
-  width: 200px;
+  width: 300px;
 }
 .meal-container .meal-content .meal-label .label-quantity {
   width: 40px;
 }
 .meal-container .meal-content .meal-label .label-size {
   flex: 1;
-  max-width: 100px;
+  width: 100px;
 }
 .meal-container .meal-content .meal-label .label-calories {
   flex: 1;

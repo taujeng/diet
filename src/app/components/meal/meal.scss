@@ -1,5 +1,5 @@
 .meal-container {
-  margin: 20px 0;
+  margin: 10px 0 20px;
   padding: 10px;
   min-height: 200px;
   display: flex;
@@ -16,15 +16,15 @@
   }
   .meal-content {
     .meal-label {
-      width: 750px;
+      width: 850px;
       display: flex;
-      font-size: 1.5em;
-      font-weight: bold;
+      font-size: 1.2em;
+      font-weight: 600;
       justify-content: center;
       gap: 1rem;
       .label-name {
         // flex: 2;
-        width: 200px;
+        width: 300px;
       }
       .label-quantity {
         // flex: 1;
@@ -32,7 +32,7 @@
       }
       .label-size {
         flex: 1;
-        max-width: 100px;
+        width: 100px;
       }
       .label-calories {
         flex: 1;
