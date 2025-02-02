@@ -3,11 +3,12 @@
 import React, {useState} from 'react'
 import Meal from "./components/meal/Meal";
 import { v4 } from 'uuid';
+import Overall from './components/overall/Overall';
 import "./home.css"
 
 export default function Home() {
   const [message, setMessage] = useState('')
-  const [meals, setMeals] = useState({
+  const [allMeals, setAllMeals] = useState({
     Breakfast: [
       {
         id: v4(),
@@ -44,7 +45,7 @@ export default function Home() {
 
     // Function to update meals from child components
     const updateMeal = (mealType, updatedMeals) => {
-      setMeals((prev) => ({
+      setAllMeals((prev) => ({
         ...prev,
         [mealType]: updatedMeals
       }));
@@ -52,7 +53,8 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      {Object.entries(meals).map(([key,value]) => {
+      <Overall data={allMeals}/>
+      {Object.entries(allMeals).map(([key,value]) => {
         return <Meal 
                   key={key}   
                   title={key} 
