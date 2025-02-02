@@ -6,11 +6,12 @@ import {
   Tooltip,
   Legend,
   CategoryScale,
+  Title
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 // Register ChartJS components
-ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, ChartDataLabels);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, Title, ChartDataLabels);
 
 const CircleChart = ( {stats, legend} ) => {
   const data = {
@@ -38,6 +39,11 @@ const CircleChart = ( {stats, legend} ) => {
   const options = {
     responsive: true,
     plugins: {
+      title: {
+        display: true,
+        text: "Calorie Count",
+        position: "top",
+      },
       legend: {
         position: 'right',
       },
@@ -46,12 +52,14 @@ const CircleChart = ( {stats, legend} ) => {
       },
       datalabels: {
         color: "white",
-      }
+      },
+
+
     },
   };
 
   return (
-    <div style={{ width: '400px', height: '400px' }}>
+    <div style={{ width: '350px', height: '350px' }}>
       <Doughnut data={data} options={options} />
     </div>
   );

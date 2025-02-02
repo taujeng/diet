@@ -1,5 +1,6 @@
 import React from 'react'
 import CircleChart from '../circleChart/CircleChart'
+import './overall.css'
 
 const Overall = ( {data} ) => {
   const avgCalorie = 10000
@@ -9,16 +10,21 @@ const Overall = ( {data} ) => {
   let proteinEaten = 0;
   for (let i = 0, list = Object.keys(data); i < list.length ; i++) {
     data[list[i]].forEach(item => {
-      calEaten += item.calories;
-      proteinEaten += item.protein;
+      calEaten += Number(item.calories) || 0;
+      proteinEaten += Number(item.protein) || 0;
     })
   }
 
   let calRemaining = avgCalorie - calEaten;
   let proteinRemaining = avgProtein - proteinEaten;
   return (
-    <div>
-      <CircleChart stats={[calEaten, calRemaining]} legend={["Calories Consumed", "Calories Remaining"]}/>
+    <div className="overall-container">
+      <div id="calorie-circle">
+        <CircleChart 
+          stats={[calEaten, calRemaining]} 
+          legend={["Consumed", "Remaining"]}/>
+
+      </div>
     </div>
   )
 }
