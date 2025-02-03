@@ -42,10 +42,10 @@ const CircleChart = ( {stats, legend} ) => {
       title: {
         display: true,
         text: "Calorie Count",
-        position: "top",
+        position: "top" as const,
       },
       legend: {
-        position: 'right',
+        position: 'right' as const,
       },
       tooltip: {
         enabled: true

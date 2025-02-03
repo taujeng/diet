@@ -10,8 +10,8 @@ const Header = () => {
       </div>
       <div className="header-right">
         <ul>
+          <li><Link href={"/profile"}>Profile</Link></li>
           <li>About</li>
-          <li>Stats</li>
           <li>Support</li>
         </ul>
       </div>

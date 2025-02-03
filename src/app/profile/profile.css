@@ -1,9 +1,31 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+}
+.profile-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .profile-card {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .profile-container .profile-btn {
   background: none;
   border: 1px black solid;
-  padding: 5px;
+  padding: 7px;
+  font-size: 0.8em;
   cursor: pointer;
-  border-radius: 10%;
+  border-radius: 4px;
+  margin: 10px;
 }
 .profile-container .profile-btn.selected {
   background-color: lightgreen;
@@ -13,6 +35,10 @@
   border: none;
   border-bottom: 1px black solid;
   width: 55px;
+  text-align: center;
+}
+.profile-container .profile-name input {
+  width: 250px;
 }
 .profile-container .profile-sex .sex-answer button {
   margin: 10px;
@@ -20,4 +46,15 @@
 .profile-container .profile-height input {
   width: 45px;
   margin-left: 10px;
+}
+.profile-container .profile-submit {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  border: 2px black solid;
+  font-size: 0.8em;
+}
+.profile-container .profile-submit:hover {
+  background-color: lightgreen;
 }/*# sourceMappingURL=profile.css.map */

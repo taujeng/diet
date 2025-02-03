@@ -1,17 +1,30 @@
 'use client'
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './profile.css'
 
 const Profile = () => {
   const [profile, setProfile] = useState({
+    name: "",
     age: 0,
     sex: "",
-    height: {feet: 0, inches: 0, cm: 0},
+    height: { feet: 0, inches: 0, cm: 0 },
     weight: 0,
     lifestyle: "not sure",
     goal: "no goals"
-  })
+  });
+
+  useEffect(() => {
+    const savedProfile = localStorage.getItem("appLogUser");
+    if (savedProfile) {
+      setProfile(JSON.parse(savedProfile));
+    }
+  }, []);
+
+  // allows for auto updates
+  // useEffect(() => {
+  //   localStorage.setItem("appLogUser", JSON.stringify(profile));
+  // }, [profile]);
 
   const handleChange = (e) => {
     setProfile({...profile, [e.target.name]: e.target.value})
@@ -19,14 +32,21 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profile)
-    // handle the form submission logic here
+    localStorage.setItem("appLogUser", JSON.stringify(profile));
   };
 
   return (
     <div className="profile-container">
       <form onSubmit={handleSubmit}>
-        <div className="profile-age">
+        <div className="profile-name profile-card">
+          <div className="profile-question">
+            What's your first name?
+          </div>
+          <div className="name-answer">
+            <input name="name" value={profile.name} onChange={(e)=> handleChange(e)} type="text" required/>
+          </div>
+        </div>
+        <div className="profile-age profile-card">
           <div className="profile-question">
             How old are you?
           </div>
@@ -36,7 +56,7 @@ const Profile = () => {
                 name="age" type="number" step="1" min="1" max="120"/>
           </div>
         </div>
-        <div className="profile-sex">
+        <div className="profile-sex profile-card">
           <div className="profile-question">
             What is your sex?
           </div>
@@ -51,7 +71,7 @@ const Profile = () => {
             }} className={`profile-btn ${profile.sex === "male" && "selected"}`}>Male</button>
           </div>
         </div>
-        <div className="profile-height">
+        <div className="profile-height profile-card">
           <div className="profile-question">
             What is your height?
           </div>
@@ -68,15 +88,15 @@ const Profile = () => {
               type="number" step="1" min="0" max="11.5"/> in
           </div>
         </div>
-        <div className="profile-weight">
+        <div className="profile-weight profile-card">
           <div className="profile-question">
             How much do you weight?
           </div>
           <div className="weight-answer">
-            <input name="weight" onChange={(e) => handleChange(e)} type="number" step="1" min="1" max="500" required/> lbs
+            <input name="weight" value={profile.weight} onChange={(e) => handleChange(e)} type="number" step="1" min="1" max="500" required/> lbs
           </div>
         </div>
-        <div className="profile-lifestyle">
+        <div className="profile-lifestyle profile-card">
           <div className="profile-question">
             How active are you?
           </div>
@@ -98,7 +118,7 @@ const Profile = () => {
               className={`profile-btn ${profile.lifestyle === "active" && "selected"}`}>Active</button>
           </div>
         </div>
-        <div className="profile-goal">
+        <div className="profile-goal profile-card">
           <div className="profile-question">
             What are your health goals?
           </div>
@@ -123,7 +143,7 @@ const Profile = () => {
                 Gain Weight</button>
           </div>
         </div>
-        <button type="submit">submit</button>
+        <button className="profile-card profile-submit" type="submit">Save Changes</button>
       </form>
     </div>
   );
