@@ -10,11 +10,11 @@ const Meal = ( {title, data, updateMeal}) => {
 
 
   const totalCalories = data.reduce((acc, currentValue) => {
-    const calories = currentValue.calories === "..." ? 0 : currentValue.calories;
+    const calories = currentValue.calories === "..." ? 0 : parseInt(currentValue.calories);
     return acc += calories;
   }, 0)
   const totalProtein = data.reduce((acc, currentValue) => {
-    const protein = currentValue.protein === "..." ? 0 : currentValue.protein;
+    const protein = currentValue.protein === "..." ? 0 : parseInt(currentValue.protein);
     return acc += protein;
   }, 0)
 
@@ -123,8 +123,8 @@ const Meal = ( {title, data, updateMeal}) => {
               <div className="label-name"></div>
               <div className="label-quantity"></div>
               <div className="label-size"></div>
-              <div className="label-calories">{totalCalories}</div>
-              <div className="label-protein">{totalProtein}</div>
+              <div className="label-calories">{totalCalories || 0}</div>
+              <div className="label-protein">{totalProtein || 0}</div>
               <div className="label-options"></div>
             </div>
           </div>

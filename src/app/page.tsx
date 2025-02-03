@@ -7,31 +7,28 @@ import Overall from './components/overall/Overall';
 import "./home.css"
 
 export default function Home() {
-  const [message, setMessage] = useState('')
-  const [allMeals, setAllMeals] = useState({
-    Breakfast: [
-      // {
-      //   id: v4(),
-      //   name: "Steak",
-      //   quantity: 1,
-      //   size: "normal",
-      //   calories: 1200,
-      //   protein: 400,
-      //   edit: false,
-      // },
-    ],
-    Lunch: [
-    ],
-    Dinner: []
-  })
-
-    // Function to update meals from child components
-    const updateMeal = (mealType, updatedMeals) => {
-      setAllMeals((prev) => ({
-        ...prev,
-        [mealType]: updatedMeals
-      }));
-    };
+  const [allMeals, setAllMeals] = useState({ Breakfast: [], Lunch: [], Dinner: [] });
+  const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") { 
+      const savedMeals = JSON.parse(localStorage.getItem("foodLogMeals")) || {};
+      setAllMeals(savedMeals[today] || { Breakfast: [], Lunch: [], Dinner: [] });
+    }
+  }, []);
+  
+  const updateMeal = (mealType, updatedMeals) => {
+    setAllMeals((prev) => {
+      const updatedMealsForToday = { ...prev, [mealType]: updatedMeals };
+  
+      // Update localStorage
+      const savedMeals = JSON.parse(localStorage.getItem("foodLogMeals")) || {};
+      savedMeals[today] = updatedMealsForToday;
+      localStorage.setItem("foodLogMeals", JSON.stringify(savedMeals));
+  
+      return updatedMealsForToday;
+    });
+  };
 
   return (
     <div className="home-container">
