@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import CircleChart from '../circleChart/CircleChart'
 import './overall.css'
 
@@ -20,8 +21,10 @@ const Overall = ( {data} ) => {
   return (
     <div className="overall-container">
       <div className="overall-left">
-        <b>Note:</b> This daily calorie goal is calculated using the average 30-year-old man with a 
-        sedentary lifestyle aiming to losing weight. For a more personalized plan, fill in your details here.
+        <div className="left-text">
+          <b>Note:</b> This daily calorie goal is calculated using the average 30-year-old man with a 
+          sedentary lifestyle aiming to losing weight. For a more personalized plan, go to the <Link href={"./profile"}>Profile page.</Link>
+        </div>
       </div>
       <div id="calorie-circle">
         <CircleChart 

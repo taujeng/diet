@@ -15,7 +15,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1em;
+    .left-text {
+      display: block;
+      // text-align: center; 
+      font-size: 1em;
+      a {
+        color: blue;
+      }
+    }
   }
   #calorie-circle{
     display: flex;
