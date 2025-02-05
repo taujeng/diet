@@ -7,13 +7,37 @@ import Overall from './components/overall/Overall';
 import "./home.css"
 
 export default function Home() {
+  const [userDetails, setUserDetails] = useState({})
   const [allMeals, setAllMeals] = useState({ Breakfast: [], Lunch: [], Dinner: [] });
   const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
   
   useEffect(() => {
     if (typeof window !== "undefined") { 
-      const savedMeals = JSON.parse(localStorage.getItem("foodLogMeals")) || {};
-      setAllMeals(savedMeals[today] || { Breakfast: [], Lunch: [], Dinner: [] });
+      const savedUser = JSON.parse(localStorage.getItem("foodLogUser")) || {
+        name: "",
+        age: 0,
+        sex: "",
+        height: { feet: 0, inches: 0, cm: 0 },
+        weight: 0,
+        lifestyle: "not sure",
+        goal: "no goals",
+        customCalorie: 0
+      }
+      setUserDetails(savedUser);
+
+          // Get existing meals or initialize
+    const savedMeals = JSON.parse(localStorage.getItem("foodLogMeals")) || {};
+
+    // If today's date doesn't exist, add it
+    if (!savedMeals[today]) {
+      savedMeals[today] = { Breakfast: [], Lunch: [], Dinner: [] };
+      
+      // Save the updated meals object back to localStorage
+      localStorage.setItem("foodLogMeals", JSON.stringify(savedMeals));
+    }
+
+    // Set the meals state
+    setAllMeals(savedMeals[today]);
     }
   }, []);
   
@@ -32,7 +56,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <Overall data={allMeals}/>
+      <Overall user={userDetails} data={allMeals}/>
       {Object.entries(allMeals).map(([key,value]) => {
         return <Meal 
                   key={key}   

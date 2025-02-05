@@ -11,11 +11,12 @@ const Profile = () => {
     height: { feet: 0, inches: 0, cm: 0 },
     weight: 0,
     lifestyle: "not sure",
-    goal: "no goals"
+    goal: "no goals",
+    customCalorie: 2400,
   });
 
   useEffect(() => {
-    const savedProfile = localStorage.getItem("appLogUser");
+    const savedProfile = localStorage.getItem("foodLogUser");
     if (savedProfile) {
       setProfile(JSON.parse(savedProfile));
     }
@@ -30,9 +31,33 @@ const Profile = () => {
     setProfile({...profile, [e.target.name]: e.target.value})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    localStorage.setItem("appLogUser", JSON.stringify(profile));
+
+    try {
+      const response = await fetch("/api/getCustom", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ profile: profile}), // Pass in entire profile
+      });
+
+      const res = await response.json();
+      // console.log(res, res.user.content)
+
+      const customCalorie = res.user.content
+      const updateProfile = {...profile, customCalorie: customCalorie}
+      setProfile(updateProfile);
+      localStorage.setItem("foodLogUser", JSON.stringify(updateProfile));
+      if (!response.ok) {
+        console.error("API Error:", res.error || "Failed to fetch stats.");
+        return;
+      }
+    } catch (error) {
+      console.error("Error fetching calorie data:", error);
+    }
+
+
+    // localStorage.setItem("foodLogUser", JSON.stringify(profile));
   };
 
   return (
