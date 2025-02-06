@@ -39,7 +39,7 @@ export default function Home() {
     // Set the meals state
     setAllMeals(savedMeals[today]);
     }
-  }, []);
+  }, [today]);
   
   const updateMeal = (mealType, updatedMeals) => {
     setAllMeals((prev) => {
