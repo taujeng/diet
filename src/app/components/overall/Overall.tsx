@@ -16,7 +16,7 @@ const Overall = ( {user, data} ) => {
   //     setCalorieGoal(JSON.parse(savedGoal))
   //   }
   // }, [])
-  const calorieGoal = parseInt(user.customCalorie) || 0;
+  const calorieGoal = parseInt(user.customCalorie) || 2400;
 
   const avgProtein = 70
 
@@ -24,7 +24,6 @@ const Overall = ( {user, data} ) => {
   let proteinEaten = 0;
   for (let i = 0, list = Object.keys(data); i < list.length ; i++) {
     data[list[i]].forEach(item => {
-      console.log(item.calories)
       calEaten += Number(item.calories) || 0;
       proteinEaten += Number(item.protein) || 0;
     })
