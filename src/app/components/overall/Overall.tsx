@@ -1,22 +1,36 @@
-import React from 'react'
-import Link from 'next/link'
-import CircleChart from '../circleChart/CircleChart'
-import './overall.css'
+'use client'
 
-const Overall = ( {data} ) => {
-  const avgCalorie = 2400
+import React, {useEffect, useState} from 'react';
+import Link from 'next/link';
+import CircleChart from '../circleChart/CircleChart';
+import './overall.css';
+
+const Overall = ( {user, data} ) => {
+  // console.log(JSON.stringify(data))
+  
+  // const [calorieGoal, setCalorieGoal] = useState(2400);
+
+  // useEffect(() => {
+  //   const savedGoal = localStorage.getItem("foodLogUser");
+  //   if (savedGoal) {
+  //     setCalorieGoal(JSON.parse(savedGoal))
+  //   }
+  // }, [])
+  const calorieGoal = parseInt(user.customCalorie) || 0;
+
   const avgProtein = 70
 
   let calEaten = 0;
   let proteinEaten = 0;
   for (let i = 0, list = Object.keys(data); i < list.length ; i++) {
     data[list[i]].forEach(item => {
+      console.log(item.calories)
       calEaten += Number(item.calories) || 0;
       proteinEaten += Number(item.protein) || 0;
     })
   }
 
-  let calRemaining = avgCalorie - calEaten;
+  let calRemaining = calorieGoal - calEaten;
   let proteinRemaining = avgProtein - proteinEaten;
   return (
     <div className="overall-container">

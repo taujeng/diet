@@ -3,8 +3,9 @@
 ## Features
 
 - [ ] Main page
+- [ ] Add Google Analytics
 - [ ] Info page for users. Should prompt first time seeing site /info
-- [ ] Overall section: for new users, use the average person as the standard
+- [x] Overall section: for new users, use the average person as the standard
 - [ ] suggest next meal
 - [x] - Sign for new entries
 - [ ] but a different way to add entire meals. perhaps a modal
