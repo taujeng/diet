@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import Link from 'next/link';
 import CircleChart from '../circleChart/CircleChart';
 import './overall.css';
+import HTMLProgressBar from '../progressBar/HTMLProgressBar';
 
 const Overall = ( {user, data} ) => {
   // console.log(JSON.stringify(data))
@@ -16,9 +17,9 @@ const Overall = ( {user, data} ) => {
   //     setCalorieGoal(JSON.parse(savedGoal))
   //   }
   // }, [])
-  const calorieGoal = parseInt(user.customCalorie) || 2400;
+  const calorieGoal = parseInt(user.customCalorie) || 2070;
 
-  const avgProtein = 70
+  const proteinGoal = parseInt(user.customCalorie) || 80;
 
   let calEaten = 0;
   let proteinEaten = 0;
@@ -30,7 +31,7 @@ const Overall = ( {user, data} ) => {
   }
 
   let calRemaining = calorieGoal - calEaten;
-  let proteinRemaining = avgProtein - proteinEaten;
+  // let proteinRemaining = proteinGoal - proteinEaten;
   return (
     <div className="overall-container">
       <div className="overall-left">
@@ -44,7 +45,11 @@ const Overall = ( {user, data} ) => {
           stats={[calEaten, calRemaining]} 
           legend={["Consumed", "Remaining"]}/>
       </div>
-      <div className="overall-right"></div>
+      <div className="overall-right">
+        <div className="progressBar-container">
+          <HTMLProgressBar value={proteinEaten} maxValue={proteinGoal}/>
+        </div>
+      </div>
     </div>
   )
 }

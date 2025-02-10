@@ -12,7 +12,7 @@ const Profile = () => {
     weight: 0,
     lifestyle: "not sure",
     goal: "no goals",
-    customCalorie: 2400,
+    customCalorie: 1570,
   });
 
   useEffect(() => {
