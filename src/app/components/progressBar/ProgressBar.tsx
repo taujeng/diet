@@ -52,7 +52,7 @@ const ProgressBar = ({ value=25, maxValue=25, label="Protein" }) => {
 
   return (
     <div style={{ width: '50%', height: '150px' }}>
-      <Bar data={data} options={options} />
+      {/* <Bar data={data} options={options} /> */}
     </div>
   );
 };
