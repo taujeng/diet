@@ -4,6 +4,35 @@
   align-items: center;
   font-size: 1.5em;
 }
+.profile-container .custom-goals {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .custom-goals .custom-answers {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.profile-container .custom-goals input {
+  width: 80px;
+  text-align: center;
+}
+.profile-container .custom-goals .custom-protein input {
+  width: 65px;
+}
+.profile-container .custom-goals .profile-options {
+  margin-top: 15px;
+  width: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.profile-container .custom-goals .profile-options .profile-action {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
 .profile-container form {
   width: 100%;
   display: flex;

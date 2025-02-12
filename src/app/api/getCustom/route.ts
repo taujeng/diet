@@ -18,24 +18,28 @@ export async function POST(request: Request) {
         messages: [
             { role: "system", content: `
               You are a succinct nutritionist. 
-              Given the following details about your client, provide the estimated number of calories they need to maintain their current weight.
-              Reply with one number. Omit calories.
+              Given the following details about your client, provide the estimated number of calories and protein they need to maintain their current weight.
+              Reply with an object structured exactly like this format with no spaces after colons: {"calories":2000,"protein":150}
               ` },
             {
                 role: "user",
                 content: 
-                 `For a ${profile.age}-year-old ${profile.sex} who is ${feetInchesToCm(profile.height.feet, profile.height.inches)} cm tall, weighs ${lbsToKg(profile.weight)} kg, and has a ${profile.lifestyle} lifestyle, how many calories do they need daily to maintain their weight?`
+                 `User is ${profile.age}-year-old ${profile.sex} who is ${feetInchesToCm(profile.height.feet, profile.height.inches)} cm tall, weighs ${lbsToKg(profile.weight)} kg, and has a ${profile.lifestyle} lifestyle.`
             },
         ],
         temperature: 0.1,
         store: true,
     });
 
-    console.log(completion.choices[0].message);
+    // console.log(completion)
+    // console.log(completion.choices[0].message.content);
+    const res = completion.choices[0].message.content;
+    const resObject = typeof res === 'string' ? JSON.parse(res) : res;
+
 
     return NextResponse.json({ 
       success: true, 
-      user: completion.choices[0].message
+      user: resObject
     })
   } catch (error) {
     return NextResponse.json(

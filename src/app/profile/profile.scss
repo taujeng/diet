@@ -4,6 +4,37 @@
   flex-direction: column;
   align-items: center;
   font-size: 1.5em;
+  .custom-goals {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .custom-answers{
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    input {
+      width: 80px;
+      text-align: center;
+    }
+    .custom-protein {
+      input {
+        width: 65px;
+      }
+    }
+    .profile-options {
+      margin-top: 15px;
+      width: 10%;
+      display: flex;
+      justify-content: space-evenly;
+      .profile-action {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+  }
   form {
     width: 100%;
     display: flex;

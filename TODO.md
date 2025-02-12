@@ -25,3 +25,8 @@
 
 - [ ]
 - [ ]
+
+## Solved Errors
+
+- OpenAI API Response Parsing Issue
+  I asked for a response like {calorie: #, protein: #}, and in return I'd get back "{calorie: 1500, protein: 80}" -> which is invalid JSON, as numbers should not have spaces after the colons. Resulted in errors that could not be solved with JSON.parse()

@@ -1,7 +1,9 @@
 'use client'
 
 import React, {useState, useEffect} from 'react';
+import { CircleCheck, CircleX } from 'lucide-react';
 import './profile.css'
+import { resolve } from 'dns';
 
 const Profile = () => {
   const [profile, setProfile] = useState({
@@ -13,7 +15,10 @@ const Profile = () => {
     lifestyle: "not sure",
     goal: "no goals",
     customCalorie: 1570,
+    customProtein: 120,
   });
+  const [tempCalorie, setTempCalorie] = useState(profile.customCalorie);
+  const [tempProtein, setTempProtein] = useState(profile.customProtein);
 
   useEffect(() => {
     const savedProfile = localStorage.getItem("foodLogUser");
@@ -42,10 +47,11 @@ const Profile = () => {
       });
 
       const res = await response.json();
-      // console.log(res, res.user.content)
+      // console.log(res, res.user, typeof res.user)
 
-      const customCalorie = res.user.content
-      const updateProfile = {...profile, customCalorie: customCalorie}
+      const {calories, protein} = res.user
+      const updateProfile = {...profile, customCalorie: calories, customProtein: protein}
+      console.log(updateProfile)
       setProfile(updateProfile);
       localStorage.setItem("foodLogUser", JSON.stringify(updateProfile));
       if (!response.ok) {
@@ -62,6 +68,31 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
+      <div className="custom-goals">
+        <h1>Set your own goals:</h1>
+        <p>If you already know your target calorie and protein intake, enter them below to track your progress.</p>
+        <div className="custom-answers">
+          <div className="custom-calorie">
+            Calories: <input type="number" value={tempCalorie}
+              onChange={(e) => setTempCalorie(Number(e.target.value))}
+              min={0} step={10} autoFocus/> 
+          </div>
+          <div className="custom-protein">
+            Protein <input type="number" value={tempProtein} 
+              onChange={(e) => setTempProtein(Number(e.target.value))}
+              min={0} step={1}/> g 
+          </div>
+        </div>
+        <div className="profile-options">
+          <CircleCheck className="profile-action" style={{color: "green"}} />
+          <CircleX className="profile-action" 
+            onClick={() => {setTempCalorie(0); setTempProtein(0)}}
+            style={{color: "crimson"}}/>
+        </div>
+      </div>
+      <h1>Get a Personalized Recommendation</h1>
+      <p>Not sure what your targets are? Enter your details, and we'll estimate your daily targets based on your body, lifestyle, and goals.</p>
+      {/* <div className="">Not sure? Fill in the form below and FoodLogAI will give you an estimate.</div> */}
       <form onSubmit={handleSubmit}>
         <div className="profile-name profile-card">
           <div className="profile-question">

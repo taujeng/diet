@@ -19,7 +19,7 @@ const Overall = ( {user, data} ) => {
   // }, [])
   const calorieGoal = parseInt(user.customCalorie) || 2070;
 
-  const proteinGoal = parseInt(user.customCalorie) || 80;
+  const proteinGoal = parseInt(user.customProtein) || 80;
 
   let calEaten = 0;
   let proteinEaten = 0;
