@@ -9,8 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+    font-size: 25px;
+    p {
+      font-size: 0.8em;
+    }
     .custom-answers{
       width: 50%;
+      margin-top: 20px;
       display: flex;
       justify-content: space-evenly;
     }
@@ -23,9 +29,14 @@
         width: 65px;
       }
     }
+    .profile-feedback {
+      margin-top: 35px;
+      color: #66D37E;
+    }
     .profile-options {
-      margin-top: 15px;
-      width: 10%;
+      margin-top: 35px;
+      width: 15%;
+      max-width: 200px;
       display: flex;
       justify-content: space-evenly;
       .profile-action {
@@ -35,71 +46,132 @@
       }
     }
   }
-  form {
+  .info-form {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .profile-card {
-    margin: 25px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .profile-btn {
-    background: none;
-    border: 1px black solid;
-    padding: 7px;
-    font-size: 0.8em;
-    cursor: pointer;
-    border-radius: 4px;
-    margin: 10px;
-  }
-  .profile-btn.selected {
-    background-color: lightgreen;
-    border: none;
-  }
-  input {
-    border: none;
-    border-bottom: 1px black solid;
-    width: 55px;
-    text-align: center;
-  }
-  .profile-name {
-    input {
-      width: 250px;
+    margin-top: 100px;
+    font-size: 25px;
+    p {
+      width: 50%;
+      font-size: 0.8em;
     }
-  }
-  .profile-age {
-    .age-answer {
-
+    
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-  }
-  .profile-sex {
-    .sex-answer {
-      button {
-        margin: 10px;
+    .profile-card {
+      margin: 25px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .profile-question {
+        margin-bottom: 10px;
       }
     }
-  }
-  .profile-height {
-    input {
-      width: 45px;
-      margin-left: 10px;
+    .profile-btn {
+      background: none;
+      border: 1px black solid;
+      padding: 7px 12px;
+      font-size: 0.8em;
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-  }
-  .profile-submit {
-    cursor: pointer;
-    background-color: white;
-    border-radius: 4px;
-    padding: 5px;
-    border: 2px black solid;
-    font-size: 0.8em;
-  }
-  .profile-submit:hover {
-    background-color: lightgreen;
+    .profile-btn:hover {
+      background-color: lightgreen;
+    }
+    .profile-btn.selected {
+      background-color: lightgreen;
+      border: 1px white solid;
+    }
+    input {
+      border: none;
+      border-bottom: 1px black solid;
+      width: 55px;
+      text-align: center;
+    }
+    .profile-name {
+      input {
+        width: 250px;
+      }
+    }
+    .profile-age {
+      .age-answer {
+  
+      }
+    }
+    .profile-sex {
+      .sex-answer {
+        display: flex;
+        align-items: center;
+        .sex-female, .sex-male {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 15px;
+          height: 100%;
+          .sex-icon {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        button {
+          margin: 10px;
+        }
+      }
+    }
+    .profile-height {
+      input {
+        width: 45px;
+        margin-left: 10px;
+      }
+      .height-metric {
+        input {
+          width: 65px;
+        }
+      }
+      .height-option {
+        display: flex;
+      }
+    }
+    .profile-weight {
+      .weight-options {
+        display: flex;
+      }
+    }
+    .profile-lifestyle {
+      .lifestyle-answer {
+        display: flex;
+      }
+    }
+    .profile-goal {
+      .goal-answer {
+        display: flex;
+      }
+    }
+    .profile-submit {
+      cursor: pointer;
+      background-color: white;
+      border-radius: 4px;
+      padding: 5px;
+      border: 2px black solid;
+      font-size: 0.8em;
+    }
+    .profile-submit:hover {
+      background-color: lightgreen;
+    }
+  
   }
 }

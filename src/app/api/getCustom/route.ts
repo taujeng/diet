@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     });
 
     // console.log(completion)
-    // console.log(completion.choices[0].message.content);
+    console.log(completion.choices[0].message.content);
     const res = completion.choices[0].message.content;
     const resObject = typeof res === 'string' ? JSON.parse(res) : res;
 

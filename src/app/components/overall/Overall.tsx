@@ -37,7 +37,7 @@ const Overall = ( {user, data} ) => {
       <div className="overall-left">
         <div className="left-text">
           <b>Note:</b> This daily calorie goal is calculated using the average 30-year-old man with a 
-          sedentary lifestyle aiming to losing weight. For a more personalized plan, go to the <Link href={"./profile"}>Profile page.</Link>
+          sedentary lifestyle aiming to losing weight. For a more personalized plan, update your <Link href={"./profile"}>profile.</Link>
         </div>
       </div>
       <div id="calorie-circle">
