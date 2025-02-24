@@ -39,17 +39,15 @@
       border: none;
       background-color: inherit;
     }
-    .meal-submit {
-      cursor: pointer;
-      margin-right: 10px;
-      background-color: #5ce65c;
-    }
     .submit-btn {
-      cursor: pointer;
       height: 30px;
       width: 30px;
-      color: green;
-      transition: color 0.5s ease;
+      // color: #7ed957;
+      transition: 0.3s;
+    }
+    .submit-btn:hover {
+      color: #228b22;
+      transform: scale(1.3);
     }
     .submit-btn.noShow {
       visibility: hidden;
@@ -58,7 +56,12 @@
       cursor: pointer;
       width: 30px;
       height: 30px;
-      color: crimson;
+      color: #ff726f;
+      transition: 0.3s;
+    }
+    .remove-btn:hover {
+      transform: scale(1.3);
+      color: #dc3545;
     }
 
 

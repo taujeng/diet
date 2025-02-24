@@ -63,7 +63,7 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
         />
         <div className="meal-options">
           <button type="submit" disabled={formData.formName === ""} aria-label="confirm entry">
-            <Check  className="submit-btn" style={{color: formData.formName === "" ? "grey" : "#5ce65c"}}/>
+            <Check  className="submit-btn" style={{color: formData.formName === "" ? "grey" : "#7ed957", cursor: formData.formName === "" ? "" : "pointer" } }/>
           </button>
           <X className="remove-btn" onClick={()=> removeRow(id)} aria-label="remove entry"/>
         </div>

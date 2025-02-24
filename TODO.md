@@ -2,8 +2,8 @@
 
 ## Features
 
-- [ ] Main page
-- [ ] Add Google Analytics
+- [x] Main page
+- [x] Add Google Analytics
 - [ ] Info page for users. Should prompt first time seeing site /info
 - [x] Overall section: for new users, use the average person as the standard
 - [ ] suggest next meal
