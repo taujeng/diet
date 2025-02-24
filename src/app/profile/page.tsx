@@ -7,6 +7,7 @@ import './profile.css'
 
 const Profile = () => {
   const [profile, setProfile] = useState({
+    newUser: false,
     name: "",
     age: 0,
     sex: "",
@@ -24,6 +25,7 @@ const Profile = () => {
   const [saving, setSaving] = useState(false);
   const [heightUnit, setHeightUnit] = useState(profile.heightUnit);
   const [weightUnit, setWeightUnit] = useState(profile.weightUnit);
+  const [infoSaving, setInfoSaving] = useState(false);
 
   useEffect(() => {
     const savedProfile = localStorage.getItem("foodLogUser");
@@ -45,7 +47,7 @@ const Profile = () => {
 
   // Submit Custom Calories/Protein Goal
   const submitCustom = () => {
-    const updateProfile = {...profile, customCalorie: tempCalorie, customProtein: tempProtein}
+    const updateProfile = {...profile, customCalorie: tempCalorie, customProtein: tempProtein, newUser: false}
     setProfile(updateProfile);
     localStorage.setItem("foodLogUser", JSON.stringify(updateProfile));
     setSaving(true);
@@ -63,19 +65,26 @@ const Profile = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
+    setInfoSaving(true);
+    setTimeout(()=> setInfoSaving(false), 3500)
+
+    const currentProfile = {...profile,
+      heightUnit: heightUnit,
+      weightUnit: weightUnit
+    }
     try {
       const response = await fetch("/api/getCustom", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ profile: profile}), // Pass in entire profile
+        body: JSON.stringify({ profile: currentProfile}), // Pass in entire profile
       });
 
       const res = await response.json();
       // console.log(res, res.user, typeof res.user)
 
-      const {calories, protein, heightUnit, weightUnit} = res.user
-      const updateProfile = {...profile, customCalorie: calories, customProtein: protein, heightUnit: heightUnit, weightUnit: weightUnit}
-      console.log(updateProfile)
+      const {calories, protein} = res.user
+      const updateProfile = {...currentProfile, customCalorie: calories, customProtein: protein, newUser: false}
+
       setProfile(updateProfile);
       localStorage.setItem("foodLogUser", JSON.stringify(updateProfile));
       if (!response.ok) {
@@ -89,6 +98,22 @@ const Profile = () => {
 
     // localStorage.setItem("foodLogUser", JSON.stringify(profile));
   };
+
+  const handleReset = () => {
+    const resetProfile = {...profile,
+      name: "",
+      age: 0,
+      sex: "",
+      height: { feet: 0, inches: 0, cm: 0 },
+      weight: { lbs: 0, kg: 0},
+      lifestyle: "not sure",
+      goal: "no goals",
+      customCalorie: 0,
+      customProtein: 0,
+    }
+    setProfile(resetProfile);
+    localStorage.setItem("foodLogUser", JSON.stringify(resetProfile));
+  }
 
   return (
     <div className="profile-container">
@@ -115,12 +140,13 @@ const Profile = () => {
             <p className="profile-feedback">Saved!</p>
             :
             <div className="profile-options">
-              <CircleCheck className="profile-action" 
+              <CircleCheck className="profile-action yes" 
                 onClick={() => submitCustom()}
-                style={{color: "green"}} />
-              <CircleX className="profile-action" 
+                 />
+              <CircleX className="profile-action no" 
                 onClick={() => {setTempCalorie(0); setTempProtein(0)}}
-                style={{color: "crimson"}}/>
+                />
+
             </div>
           }
       </div>
@@ -209,15 +235,15 @@ const Profile = () => {
             <div className="profile-question">
               How much do you weight?
             </div>
-            <div className="weight-answer">
+            <div className="weight-answer-container">
               {weightUnit === "imperial" ?
-                <div className="weight-imperial">
+                <div className="weight-answer">
                   <input name="lbs" value={profile.weight.lbs} 
                   onChange={(e) => setProfile({...profile, weight: {...profile.weight, [e.target.name] : e.target.value}})} 
                   type="number" step="1" min="1" max="500" required/> lbs
                 </div> 
                 :
-                <div className="weight-metric">
+                <div className="weight-answer">
                   <input name="kg" value={profile.weight.kg} 
                     onChange={(e) => setProfile({...profile, weight: {...profile.weight, [e.target.name] : e.target.value}})} 
                     type="number" step="1" min="1" max="500" required/> kg
@@ -276,7 +302,19 @@ const Profile = () => {
                   Gain Weight</button>
             </div>
           </div>
-          <button className="profile-card profile-submit" type="submit">Save Changes</button>
+
+          {
+            infoSaving ?
+            <p className="profile-feedback">Saving...</p>
+            :
+            <div className="profile-options">
+              <button className="profile-card profile-submit" type="submit"><CircleCheck className="profile-action yes" /></button>
+              <CircleX className="profile-action no" 
+                onClick={() => handleReset()}
+                />
+            </div>
+          }
+                  
         </form>
       </div>
 

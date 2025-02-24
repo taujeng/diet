@@ -35,10 +35,15 @@ const Overall = ( {user, data} ) => {
   return (
     <div className="overall-container">
       <div className="overall-left">
-        <div className="left-text">
-          <b>Note:</b> This daily calorie goal is calculated using the average 30-year-old man with a 
-          sedentary lifestyle aiming to losing weight. For a more personalized plan, update your <Link href={"./profile"}>profile.</Link>
-        </div>
+        {user.newUser ?
+          <div className="left-text">
+            <b>Note:</b> This daily calorie goal is calculated using the average 30-year-old man with a 
+            sedentary lifestyle aiming to losing weight. For a more personalized plan, update your <Link href={"./profile"}>profile.</Link>
+          </div>
+          :
+          <div className="left-text"></div>
+        }
+
       </div>
       <div id="calorie-circle">
         <CircleChart 

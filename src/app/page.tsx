@@ -15,11 +15,14 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") { 
       const savedUser = JSON.parse(localStorage.getItem("foodLogUser")) || {
+        newUser: true,
         name: "",
         age: 0,
         sex: "",
         height: { feet: 0, inches: 0, cm: 0 },
-        weight: 0,
+        heightUnit: "imperial",
+        weight: { lbs: 0, kg: 0},
+        weightUnit: "imperial",
         lifestyle: "not sure",
         goal: "no goals",
         customCalorie: 0,

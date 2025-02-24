@@ -1,9 +1,49 @@
+.profile-options {
+  margin-top: 35px;
+  width: 15%;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.profile-feedback {
+  margin-top: 35px;
+  color: #66D37E;
+  width: 15%;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+}
+.profile-action {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.yes {
+  color: #7ed957;
+}
+.yes:hover {
+  color: #228b22;
+  transform: scale(1.2);
+}
+.no {
+  color: #ff726f;
+}
+.no:hover {
+  color: #dc3545;
+  transform: scale(1.2);
+}
+
 .profile-container {
   // height: calc(100vh - 100px - 50px);
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.5em;
+  h1 {
+    font-family: "Exo", serif;
+  }
   .custom-goals {
     display: flex;
     flex-direction: column;
@@ -13,7 +53,8 @@
     font-size: 25px;
     width: 100%;
     p {
-      width: 60%;
+      margin: 25px 0;
+      width: 50%;
       font-size: 0.8em;
     }
     .custom-answers{
@@ -31,22 +72,8 @@
         width: 65px;
       }
     }
-    .profile-feedback {
-      margin-top: 35px;
-      color: #66D37E;
-    }
-    .profile-options {
-      margin-top: 35px;
-      width: 15%;
-      max-width: 200px;
-      display: flex;
-      justify-content: space-evenly;
-      .profile-action {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-      }
-    }
+
+
   }
   .info-form {
     width: 100%;
@@ -55,9 +82,11 @@
     justify-content: center;
     align-items: center;
     margin-top: 100px;
+    margin-bottom: 100px;
     font-size: 25px;
     p {
-      width: 60%;
+      margin: 25px 0;
+      width: 50%;
       font-size: 0.8em;
     }
     
@@ -89,6 +118,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: 0.3s;
     }
     .profile-btn:hover {
       background-color: lightgreen;
@@ -149,6 +179,11 @@
       }
     }
     .profile-weight {
+      .weight-answer {
+        input {
+          width: 75px;
+        }
+      }
       .weight-options {
         display: flex;
       }
@@ -166,13 +201,14 @@
     .profile-submit {
       cursor: pointer;
       background-color: white;
-      border-radius: 4px;
-      padding: 5px;
-      border: 2px black solid;
-      font-size: 0.8em;
+      border: none;
+      // border-radius: 4px;
+      // padding: 5px;
+      // border: 2px black solid;
+      // font-size: 0.8em;
     }
     .profile-submit:hover {
-      background-color: lightgreen;
+      // background-color: lightgreen;
     }
   
   }

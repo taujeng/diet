@@ -1,9 +1,16 @@
 .progress-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.progress-container .progress-title {
+  font-size: 1.1em;
 }
 .progress-container .progress-bar {
   width: 50%;
   height: 20px;
+  margin: 10px 0 5px;
   background-color: #e0e0e0;
   border-radius: 10px;
   overflow: hidden;

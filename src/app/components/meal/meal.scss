@@ -8,6 +8,9 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
   .meal-title {
     width: 200px;
+    h1 {
+      font-family: "Exo", serif;
+    }
   }
   .meal-pic {
     width: 200px;
@@ -61,11 +64,13 @@
       height: 30px;
       color: black;
       border-radius: 50%;
+      transition: 0.2s;
     }
     .plus:hover {
       background-color: grey;
       color: white;
       cursor: pointer;
+      transform: scale(1.2);
     }
   }
 

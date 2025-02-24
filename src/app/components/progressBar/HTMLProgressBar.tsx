@@ -6,7 +6,7 @@ const HTMLProgressBar = ({ value = 0, maxValue = 80, label = 'Protein' }) => {
 
   return (
     <div className="progress-container">
-      {label} Goal: {value}/{maxValue}g
+      <div className="progress-title">{label}</div>
       <div className="progress-bar">
         <div 
           className="progress-fill"
@@ -15,6 +15,7 @@ const HTMLProgressBar = ({ value = 0, maxValue = 80, label = 'Protein' }) => {
           <span className="progress-text">{Math.round(percentage)}%</span>
         </div>
       </div>
+      {value}/{maxValue}g
     </div>
   );
 };
