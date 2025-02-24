@@ -10,6 +10,9 @@
 .meal-container .meal-title {
   width: 200px;
 }
+.meal-container .meal-title h1 {
+  font-family: "Exo", serif;
+}
 .meal-container .meal-pic {
   width: 200px;
   height: 200px;
@@ -57,9 +60,11 @@
   height: 30px;
   color: black;
   border-radius: 50%;
+  transition: 0.2s;
 }
 .meal-container .addEntry .plus:hover {
   background-color: grey;
   color: white;
   cursor: pointer;
+  transform: scale(1.2);
 }/*# sourceMappingURL=meal.css.map */

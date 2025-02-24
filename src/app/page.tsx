@@ -10,18 +10,23 @@ export default function Home() {
   const [userDetails, setUserDetails] = useState({})
   const [allMeals, setAllMeals] = useState({ Breakfast: [], Lunch: [], Dinner: [] });
   const today = new Date().toISOString().split('T')[0]; // Format: YYYY-MM-DD
-  
+
+
   useEffect(() => {
     if (typeof window !== "undefined") { 
       const savedUser = JSON.parse(localStorage.getItem("foodLogUser")) || {
+        newUser: true,
         name: "",
         age: 0,
         sex: "",
         height: { feet: 0, inches: 0, cm: 0 },
-        weight: 0,
+        heightUnit: "imperial",
+        weight: { lbs: 0, kg: 0},
+        weightUnit: "imperial",
         lifestyle: "not sure",
         goal: "no goals",
-        customCalorie: 0
+        customCalorie: 0,
+        customProtein: 0
       }
       setUserDetails(savedUser);
 
