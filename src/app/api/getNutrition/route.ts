@@ -17,8 +17,9 @@ export async function POST(request: Request) {
         messages: [
             { role: "system", content: `
               You are a succinct nutritionist. 
-              Given a food item and portion size (small, normal, or large), 
-              estimate the calorie and protein content. 
+              Given a food item and portion size (small, standard, or large), 
+              estimate the calorie and protein content. A smaller portion should yield a smaller calorie/protein count
+              compared to standard. And a large portion should yield more than standard.
               In the event that you don't recognize the food item, just return 0 for calorie and protein count.
               Answer as an array: [calories (integer), protein in grams (integer)].` },
             {

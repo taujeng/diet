@@ -25,6 +25,7 @@
       font-weight: 600;
       justify-content: center;
       gap: 1rem;
+      margin-bottom: 15px;
       .label-name {
         // flex: 2;
         width: 300px;
@@ -35,10 +36,21 @@
       }
       .label-size {
         flex: 1;
-        width: 100px;
+        width: 115px;
       }
       .label-calories {
         flex: 1;
+        position: relative;
+        .subtext {
+          position: absolute;
+          top: 90%;
+          left: 0px;
+          font-size: 0.5em;
+          color: grey;
+          font-style: italic;
+          width: 100%;
+          white-space: nowrap;
+        }
       }
       .label-protein {
         flex: 1;

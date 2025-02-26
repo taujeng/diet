@@ -24,7 +24,7 @@ const Meal = ( {title, data, updateMeal}) => {
       id: uuidv4(),
       name: "",
       quantity: 1,
-      size: "normal",
+      size: "Standard",
       calories: "",
       protein: "",
       edit: true
@@ -109,7 +109,9 @@ const Meal = ( {title, data, updateMeal}) => {
           <div className="label-name"></div>
           <div className="label-quantity">Qty</div>
           <div className="label-size">Size</div>
-          <div className="label-calories">Calories</div>
+          <div className="label-calories">Calories
+            <span className="subtext">(Auto-estimated if left blank)</span>
+          </div>
           <div className="label-protein">Protein</div>
           <div className="label-options"></div>
         </div>
