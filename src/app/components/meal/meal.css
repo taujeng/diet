@@ -25,6 +25,7 @@
   font-weight: 600;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 15px;
 }
 .meal-container .meal-content .meal-label .label-name {
   width: 300px;
@@ -34,10 +35,21 @@
 }
 .meal-container .meal-content .meal-label .label-size {
   flex: 1;
-  width: 100px;
+  width: 115px;
 }
 .meal-container .meal-content .meal-label .label-calories {
   flex: 1;
+  position: relative;
+}
+.meal-container .meal-content .meal-label .label-calories .subtext {
+  position: absolute;
+  top: 90%;
+  left: 0px;
+  font-size: 0.5em;
+  color: grey;
+  font-style: italic;
+  width: 100%;
+  white-space: nowrap;
 }
 .meal-container .meal-content .meal-label .label-protein {
   flex: 1;

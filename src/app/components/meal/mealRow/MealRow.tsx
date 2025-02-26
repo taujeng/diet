@@ -40,12 +40,13 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
         <select className="meal-size"
           aria-label="portion size"
           value={formData.formSize}
-          onChange={(e) => 
-            setFormData({...formData, formSize: e.target.value})}
+          onChange={(e) => {
+            console.log(e.target.value)
+            setFormData({...formData, formSize: e.target.value})}}
         >
-          <option value="small">Small</option>
-          <option value="normal">Normal</option>
-          <option value="large">Large</option>
+          <option value="Small">Small</option>
+          <option value="Standard">Standard</option>
+          <option value="Large">Large</option>
         </select>
         <input 
           aria-label="# of calories"
@@ -76,10 +77,10 @@ const MealRow = ( {data, confirmRow, removeRow} ) => {
   return (
     <div className="mealRow-container">
       <div className="meal-name">{name}</div>
-      <div className="meal-quantity">{quantity}</div>
-      <div className="meal-size">{size}</div>
-      <div className="meal-calories">{calories}</div>
-      <div className="meal-protein">{protein}</div>
+      <div className="meal-quantity" style={{paddingRight: "15px"}}>{quantity}</div>
+      <div className="meal-size" style={{paddingLeft: "5px"}}>{size}</div>
+      <div className="meal-calories" style={{paddingLeft: "5px"}}>{calories}</div>
+      <div className="meal-protein" style={{paddingLeft: "5px"}}>{protein}</div>
       <div className="meal-options">
         <button type="submit">
             <Check  className="submit-btn noShow"/>
