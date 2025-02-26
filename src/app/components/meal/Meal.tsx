@@ -106,7 +106,7 @@ const Meal = ( {title, data, updateMeal}) => {
       </div> */}
       <div className="meal-content">
         <div className="meal-label">
-          <div className="label-name"></div>
+          <div className="label-name">Food/Drink Item</div>
           <div className="label-quantity">Qty</div>
           <div className="label-size">Size</div>
           <div className="label-calories">Calories
@@ -125,8 +125,8 @@ const Meal = ( {title, data, updateMeal}) => {
               <div className="label-name"></div>
               <div className="label-quantity"></div>
               <div className="label-size"></div>
-              <div className="label-calories">{totalCalories || 0}</div>
-              <div className="label-protein">{totalProtein || 0}</div>
+              <div className="label-calories" style={{paddingLeft: "5px"}}>{totalCalories || 0}</div>
+              <div className="label-protein" style={{paddingLeft: "5px"}}>{totalProtein || 0}</div>
               <div className="label-options"></div>
             </div>
           </div>

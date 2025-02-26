@@ -10,6 +10,8 @@
 - [x] - Sign for new entries
 - [ ] but a different way to add entire meals. perhaps a modal
 - [ ] image generation based off meal
+- [ ] Add a weight tracking page
+- [ ] Stats page: avg # of calories consumed each day (pot chart), most eaten foods, ect
 
 ## Enhancements
 
@@ -23,7 +25,7 @@
 
 ## Low Priority
 
-- [ ]
+- [ ] When adding a new food item, total Calories/Protein (for the meal) becomes 0
 - [ ]
 
 ## Solved Errors
